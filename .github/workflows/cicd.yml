@@ -1,4 +1,5 @@
 name: devops app
+
 on:
   push:
     branches: [ "main" ]
