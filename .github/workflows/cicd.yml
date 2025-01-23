@@ -14,11 +14,11 @@ jobs:
       - name: Setup Python 3.9
         uses: actions/setup-python@v3
         with:
-          python-version: "3.9"
-      - name: List files
+          python-version: '3.9'
+      - name: files list
         run: |
           ls
-          echo "terry is teaching"
+          echo "list is working"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -37,14 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Docker Login
+      - name: login
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build and push Docker image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-app:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
