@@ -44,5 +44,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }} 
       - name: build and push image
         run: |
-          docker build -t shreyababu/devops_personal:${{github.sha}}
+          docker build -t shreyababu/devops_personal:${{github.sha}} .
           docker push  shreyababu/devops_personal:${{github.sha }}
